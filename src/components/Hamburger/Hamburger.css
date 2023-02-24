@@ -1,0 +1,82 @@
+.hamburger-button {
+  display: none;
+  border: none;
+  background: none;
+  padding: 0;
+  align-items: center;
+  position: absolute;
+  top: 27px;
+  right: 27px;
+  width: 22px;
+  height: 22px;
+  z-index: 4;
+  transition: all .3s;
+}
+
+.hamburger-button__off {
+  right: 37px;
+  width: 28px;
+  height: 22px;
+}
+
+.hamburger-button:hover {
+  opacity: .5;
+}
+
+.hamburger-button__off > span,
+.hamburger-button__off > span::before,
+.hamburger-button__off > span::after {
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  transition: all .3s;
+}
+
+.hamburger-button__off > span::before {
+  content: '';
+  top: -10px;
+}
+
+.hamburger-button__off > span::after {
+  content: '';
+  top: 10px;
+}
+
+.hamburger-button__on > span,
+.hamburger-button__on > span::before,
+.hamburger-button__on > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  transform: rotate(-45deg);
+  transition: all .3s;
+}
+
+.hamburger-button__on > span::before {
+  content: '';
+  top: 0;
+  transform: rotate(0);
+}
+
+.hamburger-button__on > span::after {
+  content: '';
+  top: 0;
+  transform: rotate(-90deg);
+}
+
+@media screen and (max-width: 800px) {
+  .hamburger-button {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .hamburger-button {
+    right: 23px;
+    width: 22px;
+  }
+}

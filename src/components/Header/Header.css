@@ -1,0 +1,54 @@
+.header {
+  width: 100%;
+  max-height: 74px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.header_theme_dark {
+  background-color: #202020;
+}
+
+.header_theme_light {
+  background-color: #073042;
+}
+
+.header__container {
+  max-width: 1280px;
+  padding: 18px 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.header__link {
+  transition: all .3s;
+  height: 38px;
+}
+
+.header__link:hover {
+  transform: scale(1.2);
+  opacity: .5;
+}
+.header__link_type_desktop {
+padding-right: 44px;
+}
+
+.header__logo {
+  width: 38px;
+  height: 38px;
+}
+
+@media screen and (max-width: 851px) {
+  .header__container {
+    padding: 18px 30px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header__container {
+    padding: 18px 14px;
+  }
+}

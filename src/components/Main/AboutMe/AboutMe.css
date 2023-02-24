@@ -1,0 +1,185 @@
+.about-me {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-me__container {
+  max-width: 1280px;
+  width: 100%;
+  padding: 110px 70px;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.about-me__title {
+  margin: 0;
+  padding-bottom: 23px;
+  border-bottom: #DADADA 1px solid;
+  width: 100%;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
+}
+
+.about-me__info {
+  margin: 0;
+  width: 100%;
+  padding-top: 66px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.about-me__info_type_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0;
+  max-width: 600px;
+}
+
+.about-me__name {
+  margin: 0;
+  width: 100%;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+}
+
+.about-me__direction {
+  margin: 0;
+  width: 100%;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  padding-top: 18px;
+}
+
+.about-me__story {
+  margin: 0;
+  width: 100%;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  padding-top: 26px;
+  padding-bottom: 121px;
+}
+
+
+.about-me__gitlink {
+  margin: 0;
+  width: fit-content;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: white;
+  text-decoration: none;
+}
+
+.about-me__gitlink:hover {
+  opacity: .5;
+}
+
+.about-me__info_type_img {
+  border-radius: 10px;
+  width: 270px;
+  height: 327px;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 850px) {
+  .about-me__container {
+    padding: 90px 50px;
+  }
+  
+  .about-me__info_type_text {
+    max-width: 364px;
+  }
+  
+  .about-me__name {
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 40px;
+  }
+  
+  .about-me__direction {
+    font-size: 12px;
+    line-height: 18px;
+    padding-top: 16px;
+  }
+  
+  .about-me__story {
+    font-size: 12px;
+    line-height: 18px;
+    padding-top: 20px;
+    padding-bottom: 87px;
+  }
+  
+  .about-me__info_type_img {
+    border-radius: 10px;
+    width: 255px;
+    height: 307px;
+    object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .about-me {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .about-me__container {
+    padding: 70px 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .about-me__title {
+    padding-bottom: 28px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  
+  .about-me__info {
+    padding-top: 60px;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .about-me__name {
+    font-size: 30px;
+    line-height: 37px;
+    padding-top: 40px;
+  }
+  
+  .about-me__direction {
+    font-size: 11px;
+    line-height: 16px;
+    padding-top: 20px;
+  }
+  
+  .about-me__story {
+    font-size: 11px;
+    line-height: 16px;
+    padding-top: 20px;
+    padding-bottom: 69px;
+  }
+  
+  .about-me__info_type_img {
+    width: 292px;
+    height: 352px;
+    margin: 0;
+  }
+}
