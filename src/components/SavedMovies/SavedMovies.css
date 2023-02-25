@@ -1,4 +1,4 @@
-.movies {
+.movies__saved {
   background-color: #202020;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@
 }
 
 @media screen and (max-width: 800px) {
-  .movies {
+  .movies__saved {
     padding-bottom: 148px;
   }
 
@@ -41,7 +41,7 @@
 }
 
 @media screen and (max-width: 550px) {
-  .movies {
+  .movies__saved {
     padding-bottom: 124px;
   }
 

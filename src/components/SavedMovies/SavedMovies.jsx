@@ -7,7 +7,7 @@ import { savedCards } from '../../utils/savedCards';
 
 export default function SavedMovies({isSaved}) {
   return (
-    <main className="movies">
+    <main className="movies__saved">
       <SearchForm/>
       <MoviesCardList cards={savedCards}/>
       {(!isSaved && (<button className="movies__more">Ещё</button>))}

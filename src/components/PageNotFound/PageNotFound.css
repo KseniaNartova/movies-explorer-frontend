@@ -1,30 +1,25 @@
 .not-found {
   width: 100%;
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.not-found__text-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  margin: 0;
+  position: relative;
 }
 
 .not-found__error {
   font-weight: 400;
   font-size: 140px;
   line-height: 170px;
+  margin: 0;
 }
 
 .not-found__error-name {
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
+  margin: 5px 0 0;
 }
 
 .not-found__button {
@@ -36,11 +31,11 @@
   color: #4285f4;
   padding: 0;
   text-align: center;
+  cursor: pointer;
+  position: absolute;
   bottom: 60px;
   transition: all .3s;
-  position: absolute;
   left: 50%;
-  top: 637px;
   transform: translateX(-50%);
 }
 
@@ -48,18 +43,7 @@
   opacity: .5;
 }
 
-@media screen and (max-width: 800px) {
-  .not-found__button {
-    /* bottom: 212px; */
-    top: 637px;
-  }
-}
-
 @media screen and (max-width: 480px) {
-  .not-found__text-container {
-    gap: 10px;
-  }
-
   .not-found__error {
     font-size: 80px;
     line-height: 97px;
@@ -73,6 +57,5 @@
   .not-found__button {
     font-size: 12px;
     line-height: 15px;
-    top: 650px;
   }
 }
