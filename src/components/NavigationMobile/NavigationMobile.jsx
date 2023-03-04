@@ -1,22 +1,22 @@
 import './NavigationMobile.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import icon from '../../images/icon__COLOR_icon-main.svg'
 
 
-export default function NavigationMobile({ isBurgerOpened }) {
+export default function NavigationMobile({ isBurgerOpened, activeLink }) {
   return (
     <>
       <div className={`navigation__container-mobile ${isBurgerOpened  ? 'navigation__container-mobile_type_open' : 'navigation__container-mobile_type_close'}`}>
         <nav className="navigation navigation__container_type_auth-mobile">
           <ul className="navigation__list_type_auth-mobile">
             <li>
-              <Link to="/" className="navigation__type_auth-mobile">Главная</Link>
+              <NavLink exact to="/" className="navigation__type_auth-mobile" activeClassName={activeLink}>Главная</NavLink>
             </li>
             <li>
-              <Link to="/movies" className="navigation__type_auth-mobile navigation__type_auth-mobile_active">Фильмы</Link>
+              <NavLink to="/movies" className="navigation__type_auth-mobile" activeClassName={activeLink}>Фильмы</NavLink>
             </li>
             <li>
-              <Link to="/saved-movies" className="navigation__type_auth-mobile">Сохранённые фильмы</Link>
+              <NavLink to="/saved-movies" className="navigation__type_auth-mobile" activeClassName={activeLink}>Сохранённые фильмы</NavLink>
             </li>
           </ul>
           <Link to="/profile">

@@ -15,6 +15,14 @@
   align-items: flex-start;
 }
 
+.form__input-list {
+  padding-bottom: 90px;
+}
+
+.form__input-list_register {
+  padding-bottom: 0;
+}
+
 .form__link {
   color: #4285F4;
   text-decoration: none;
@@ -79,30 +87,21 @@
   padding-left: 15px;
 }
 
+.form__area_error {
+color: #EE3465;
+}
+
 .form__area:focus {
   outline: none;
-}
-
-.form__area_type_password {
-  color: #EE3465;
-}
-
-.form__area_type_login {
-  margin-bottom: 85px;
 }
 
 .form__error {
   color: #EE3465;
   display: block;
-  margin: 10px 0 0;
+  margin: 10px 0 10px;
   font-weight: 400;
   font-size: 10px;
   line-height: 12px;
-  opacity: 0;
-}
-
-.form__error-display {
-  opacity: 1;
 }
 
 .form__button {
@@ -120,6 +119,16 @@
 
 .form__button:hover {
   opacity: .5;
+}
+
+.form__button_disabled {
+  background-color: grey;
+  color: #eaeaea;
+  cursor: default;
+}
+
+.form__button_disabled:hover {
+  opacity: 1;
 }
 
 .form__text {

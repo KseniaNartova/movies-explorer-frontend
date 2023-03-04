@@ -1,6 +1,7 @@
 .movies-card {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .movies-card__image {
@@ -12,7 +13,7 @@
 }
 
 .movies-card__info {
-  margin-top: 14px;
+  margin-top: 11px;
   padding: 0 14px;
   display: flex;
   flex-direction: row;
@@ -63,12 +64,51 @@
   color: white;
   padding: 6px 7px;
   height: 21px;
+  width: 72px;
   position: absolute;
   top: 14px;
   right: 14px;
+  background-image: url("../../images/save3d.svg");
+  background-position: center;
+  position: absolute;
+  background-repeat: no-repeat;
+  z-index: 2;
+  /* color: transparent; */
 }
 
-.movies-card__button_save:focus{
+.movies-card__button_remove {
+  border-style: none;
+  outline: none;
+  cursor: pointer;
+  background: #313131;
+  border-radius: 30px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 9px;
+  text-align: center;
+  color: white;
+  padding: 6px 7px;
+  height: 21px;
+  width: 21px;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background-image: url("../../images/d3.svg");
+  background-position: center;
+  position: absolute;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.movies-card__button_save:hover{
+opacity: .5;
+}
+
+.movies-card__button_remove:hover{
+  opacity: .5;
+  }
+
+.movies-card__button_delete {
   width: 21px;
   height: 21px;
   border-style: none;
@@ -84,28 +124,8 @@
   top: 14px;
   right: 14px;
   color: transparent;
+  z-index: 2;
 }
-
-.movies-card__button_save:hover{
-opacity: .5;
-}
-
-/* .movies-card__button_delete {
-  width: 21px;
-  height: 21px;
-  border-style: none;
-  outline: none;
-  cursor: pointer;
-  background-color: #ee3465;
-  background-image: url("../../images/chek.svg");
-  background-size: 30%;
-  background-repeat: no-repeat;
-  border-radius: 50%;
-  background-position: center;
-  position: absolute;
-  top: 14px;
-  right: 14px;
-} */
 
 @media screen and (max-width: 768px) {
   .movies-card__info {
@@ -134,7 +154,7 @@ opacity: .5;
 
 @media screen and (max-width: 400px) {
   .movies-card__info {
-    margin-top: 18px;
+    margin-top: 14px;
   }
 
   .movies-card__image {

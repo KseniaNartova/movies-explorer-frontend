@@ -1,9 +1,36 @@
 import './SearchForm.css';
+import { useState, useEffect, useContext } from 'react';
+import { useLocation } from 'react-router-dom';
+import CurrentUserContext from '../../context/CurrentUserContext.jsx';
+import useValidation from '../../hooks/useValidation.jsx';
 
-export default function SearchForm() {
+export default function SearchForm({ handleSearchSubmit, handleShortFilms, shortMovies }) {
+  const currentUser = useContext(CurrentUserContext);
+  const { values, handleChange, isValid, setIsValid } = useValidation();
+  const location = useLocation();
+
+  const [error, setError] = useState('')
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    isValid ? handleSearchSubmit(values.search) : setError('Нужно ввести ключевое слово.');
+  };
+
+  useEffect(() => {
+    setError('')
+  }, [isValid]);
+
+  useEffect(() => {
+    if (location.pathname === '/movies' && localStorage.getItem(`${currentUser.email} - movieSearch`)) {
+      const searchValue = localStorage.getItem(`${currentUser.email} - movieSearch`);
+      values.search = searchValue;
+      setIsValid(true);
+    }
+  }, [currentUser]);
+
   return (
     <section className="search-form">
-      <form className="search-form__form">
+      <form className="search__form search-form__form" name='search' onSubmit={handleSubmit} noValidate>
         <div className="search-form__block">
           <input
             className="search-form__input"
@@ -11,7 +38,10 @@ export default function SearchForm() {
             required
             placeholder="Фильм"
             name="search"
+            value={values.search || ''}
+            onChange={handleChange}
           />
+          <p className="search-form__error">{error}</p>
           <button type="submit" className="search-form__button">
             Поиск
           </button>
@@ -21,6 +51,8 @@ export default function SearchForm() {
                 <input
                   className="search-form__filter-checkbox"
                   type="checkbox"
+                  onChange={handleShortFilms}
+                  checked={shortMovies ? true : false}
                 />
                <span className="search-form__filter-tumbler"></span>
                <span className="search-form__filter-text">Короткометражки</span>
