@@ -109,6 +109,11 @@ function App() {
       .updateUser(name, email)
       .then(data => {
         setCurrentUser(data);
+        setIsPopupError({
+          isOpen: true,
+          success: true,
+          err: 'Ваши данные обновлены',
+        });
       })
       .catch(() =>
         setIsPopupError({
