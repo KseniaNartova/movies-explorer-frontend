@@ -9,4 +9,8 @@ Movies Explorer - это интерактивный сайт, с возможн�
 В работе использованы технологии FlexBox и Grid. Верстка выполнена по методологии БЭМ.
 
 ### **Ссылки:**
-Figma: https://disk.yandex.ru/d/JlwBlHP6cooE-Q
+* Figma: https://disk.yandex.ru/d/JlwBlHP6cooE-Q
+* IP 158.160.55.21
+* Backend https://api.nartova.nomoredomainsclub.ru
+* Frontend https://nartova.nomoredomainsclub.ru
+* pull request https://github.com/KseniaNartova/movies-explorer-frontend/pull/3

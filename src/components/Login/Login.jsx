@@ -1,17 +1,26 @@
 import Form from '../Form/Form.jsx';
+import useValidation from '../../hooks/useValidation.jsx';
 
-export default function Login() {
+export default function Login({ handleLogin }) {
+
+  const { values, handleChange, errors, isValid } = useValidation();
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    handleLogin(values);
+  }
+
     return (
-      <Form title={"Рады видеть!"} submit={"Войти"} text={"Ещё не зарегистрированы?"} link={"Регистрация"} path={"/signup"}>
+      <Form isValid={isValid} handleSubmit={handleSubmit} title={"Рады видеть!"} submit={"Войти"} text={"Ещё не зарегистрированы?"} link={"Регистрация"} path={"/signup"}>
         <div className="form__list-item">
           <p className="form__item-name">E-mail</p>
-          <input type="email" className="form__area" placeholder="nartova@gmail.com" required />
-          <p className="form__error">Что-то пошло не так...</p>
+          <input name="email" type="email" value={values.email || ''} onChange={handleChange} className={`form__area ${errors.email && 'form__area_error'}`} placeholder="nartova@gmail.com" required />
+          <p className="form__error">{errors.email || ''}</p>
         </div>
         <div className="form__list-item">
           <p className="form__item-name">Пароль</p>
-          <input type="password" className="form__area form__area_type_password form__area_type_login" placeholder="•••••••••••••" required />
-          <p className="form__error">Что-то пошло не так...</p>
+          <input name="password" type="password" value={values.password || ''} onChange={handleChange} className={`form__area ${errors.password && 'form__area_error'}`} placeholder="•••••••••••••" required />
+          <p className="form__error">{errors.password || ''}</p>
         </div>
       </Form>
     )

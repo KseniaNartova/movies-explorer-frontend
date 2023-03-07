@@ -1,12 +1,13 @@
 import './Navigation.css';
 import Hamburger from '../Hamburger/Hamburger.jsx';
 import NavigationMobile from '../NavigationMobile/NavigationMobile.jsx';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import icon from '../../images/icon__COLOR_icon-main.svg'
 import useResize from '../../hooks/useResize';
 
 export default function Navigation({ loggedIn, isBurgerOpened, onClickBurger }) {
   const { width } = useResize();
+  const activeLink = 'navigation__link_active'
 
   return (
     <>
@@ -29,10 +30,10 @@ export default function Navigation({ loggedIn, isBurgerOpened, onClickBurger }) 
           <nav className="navigation navigation__type_auth-desktop">
           <ul className="navigation__info__auth">
             <li>
-              <Link to="/movies" className="navigation__link navigation__link-auth navigation__link-auth_active">Фильмы</Link>
+              <NavLink to="/movies" className="navigation__link navigation__link-auth navigation__link-auth_active" activeClassName={activeLink}>Фильмы</NavLink>
               </li>
             <li>
-              <Link to="/saved-movies" className="navigation__link navigation__link-auth">Сохранённые фильмы</Link>
+              <NavLink to="/saved-movies" className="navigation__link navigation__link-auth" activeClassName={activeLink}>Сохранённые фильмы</NavLink>
             </li>
           </ul>
           <Link to="/profile" className="navigation__link navigation__link-auth">
@@ -45,7 +46,7 @@ export default function Navigation({ loggedIn, isBurgerOpened, onClickBurger }) 
         ) : (
           <nav className={`navigation navigation__mobile_type_${isBurgerOpened ? 'opened' : 'closed'}`} >
           <Hamburger isBurgerOpened={isBurgerOpened} onClickBurger={onClickBurger} />
-          <NavigationMobile isBurgerOpened={isBurgerOpened}/>
+          <NavigationMobile isBurgerOpened={isBurgerOpened} activeLink={activeLink}/>
         </nav>
         )
       )

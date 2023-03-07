@@ -9,9 +9,7 @@ export default function Hamburger({ isBurgerOpened, onClickBurger }) {
   return (
     <button
       type="button"
-      className={`hamburger-button hamburger-button__${
-        isBurgerOpened ? 'on' : 'off'
-      }`}
+      className={`hamburger-button hamburger-button__${isBurgerOpened ? 'on' : 'off'}`}
       onClick={handleOnClickBurger}
     >
       <span></span>

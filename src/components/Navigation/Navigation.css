@@ -128,6 +128,10 @@
   background-position: center;
 }
 
+.navigation__link_active {
+  border-bottom: 2px white solid;
+}
+
 @media screen and (max-width: 800px) {
 
   .navigation__mobile_type_opened {
