@@ -112,7 +112,7 @@ function App() {
         setIsPopupError({
           isOpen: true,
           success: true,
-          err: 'Ваши данные обновлены',
+          err: 'Ваши данные обновлены!',
         });
       })
       .catch(() =>
