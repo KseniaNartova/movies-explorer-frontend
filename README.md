@@ -13,4 +13,4 @@ Movies Explorer - это интерактивный сайт, с возможн�
 * IP 158.160.55.21
 * Backend https://api.nartova.nomoredomainsclub.ru
 * Frontend https://nartova.nomoredomainsclub.ru
-* pull request https://github.com/KseniaNartova/movies-explorer-frontend/compare/level-3?expand=1
+* pull request https://github.com/KseniaNartova/movies-explorer-frontend/pull/3
