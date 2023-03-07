@@ -2,7 +2,7 @@ import "./Movies.css";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import { useState, useContext, useEffect } from "react";
-import { filterMovies, filterShortMovies } from "../../utils/utils.js";
+import { filterMovies, filterShortMovies, dataMovies } from "../../utils/utils.js";
 import moviesApi from "../../utils/MoviesApi.js";
 import CurrentUserContext from "../../context/CurrentUserContext.jsx";
 
@@ -19,14 +19,6 @@ export default function Movies({
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [isApiMovies, setIsApiMovies] = useState([]);
   const [movieNotFound, setMovieNotFound] = useState(false);
-
-  function dataMovies(movies) {
-    movies.forEach(movie => {
-        movie.thumbnail = `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}`
-        movie.image = `https://api.nomoreparties.co${movie.image.url}`
-    });
-    return movies
-  }
 
   function handleSetFilteredMovies(movies, movieQuery, shortMoviesCheckbox) {
     const movieList = filterMovies(movies, movieQuery, shortMoviesCheckbox);

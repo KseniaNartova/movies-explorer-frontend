@@ -5,7 +5,6 @@ export default function useValidation() {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(false);
-  // const mailformat = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
 
   const handleChange = (evt) => {
     const input = evt.target;
@@ -19,13 +18,6 @@ export default function useValidation() {
       }
 
     }
-    // if (name === 'email') {
-    //   if (value.match(mailformat)) {
-    //       input.setCustomValidity('Некорректый адрес почты.');
-    //   } else {
-    //       input.setCustomValidity('');
-    //   }
-    // }
 
     if (name === 'email') {
       if (!isEmail(value)) {

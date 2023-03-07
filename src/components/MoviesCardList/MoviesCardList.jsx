@@ -2,21 +2,18 @@ import './MoviesCardList.css'
 import MoviesCard from '../MoviesCard/MoviesCard'
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { DEVICE_PARAMS } from '../../utils/constants.js';
+import { getSavedMovieCard } from '../../utils/utils.js';
 
 export default function MoviesCardList({ moviesList, savedMovies, onLikeClick, onDeleteClick }) {
   const location = useLocation();
   const [width, setWidth] = useState(window.innerWidth)
+  const { desktop, tablet, mobile } = DEVICE_PARAMS;
   const [showMovieList, setShowMovieList] = useState([]);
-  const [cardsShowDetails, setCardsShowDetails] = useState({ initial: 12, more: 3 });
+  const [cardsShowDetails, setCardsShowDetails] = useState(desktop.cards);
 
   function checkWindowWidth() {
     setWidth(window.innerWidth)
-  }
-
-  function getSavedMovieCard(arr, movie) {
-    return arr.find((item) => {
-      return item.movieId === (movie.id || movie.movieId);
-    });
   }
 
   function handleClickMoreMovies() {
@@ -36,14 +33,14 @@ export default function MoviesCardList({ moviesList, savedMovies, onLikeClick, o
   }, [width])
 
    useEffect(() => {
-      if (width >= 1280) {
-        setCardsShowDetails({ initial: 12, more: 3 });
-      } else if (width > 480 && width < 1280) {
-        setCardsShowDetails({ initial: 8, more: 2 });
-      } else if (width <= 480){
-        setCardsShowDetails({ initial: 5, more: 2 });
+      if (width >= desktop.width) {
+        setCardsShowDetails(desktop.cards);
+      } else if (width > mobile.width && width < desktop.width) {
+        setCardsShowDetails(tablet.cards);
+      } else if (width <= mobile.width){
+        setCardsShowDetails(mobile.cards);
       }
-  }, [width, location.pathname]);
+  }, [width, location.pathname, desktop.width, desktop.cards, mobile.width, mobile.cards, tablet.cards]);
 
    useEffect(() => {
     if (moviesList.length) {
