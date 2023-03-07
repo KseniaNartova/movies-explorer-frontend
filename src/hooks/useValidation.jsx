@@ -1,9 +1,11 @@
 import { useState, useCallback } from 'react';
+import isEmail from 'validator/es/lib/isEmail';
 
 export default function useValidation() {
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(false);
+  // const mailformat = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
 
   const handleChange = (evt) => {
     const input = evt.target;
@@ -12,6 +14,22 @@ export default function useValidation() {
     if (name === 'password') {
       if (value.length < 5) {
           input.setCustomValidity('Длина пароля должна быть 6 символов и больше');
+      } else {
+          input.setCustomValidity('');
+      }
+
+    }
+    // if (name === 'email') {
+    //   if (value.match(mailformat)) {
+    //       input.setCustomValidity('Некорректый адрес почты.');
+    //   } else {
+    //       input.setCustomValidity('');
+    //   }
+    // }
+
+    if (name === 'email') {
+      if (!isEmail(value)) {
+          input.setCustomValidity('Некорректый адрес почты.');
       } else {
           input.setCustomValidity('');
       }
