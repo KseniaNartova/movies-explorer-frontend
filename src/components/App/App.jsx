@@ -184,7 +184,14 @@ function App() {
     }, [ loggedIn, currentUser ]);
 
     function handleSignOut() {
-      localStorage.clear();
+      const nameKeys = [
+        'jwt',
+        'movies',
+        'movieSearch',
+        'shortSavedMovies',
+        'shortMovies',
+      ];
+      nameKeys.forEach((key) => localStorage.removeItem(key));
       setCurrentUser({});
       setLoggedIn(false);
       history.push('/');

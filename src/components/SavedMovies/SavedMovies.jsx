@@ -36,14 +36,14 @@ export default function SavedMovies({
   function handleShortFilms() {
     if (!shortMovies) {
       setShortMovies(true);
-      localStorage.setItem(`${currentUser.email} - shortSavedMovies`, true);
+      localStorage.setItem('shortSavedMovies', true);
       setShowedMovies(filterShortMovies(filteredMovies));
       filterShortMovies(filteredMovies).length === 0
         ? setMovieNotFound(true)
         : setMovieNotFound(false);
     } else {
       setShortMovies(false);
-      localStorage.setItem(`${currentUser.email} - shortSavedMovies`, false);
+      localStorage.setItem('shortSavedMovies', false);
       filteredMovies.length === 0 ? setMovieNotFound(true) : setMovieNotFound(false);
       setShowedMovies(filteredMovies);
     }
@@ -51,7 +51,7 @@ export default function SavedMovies({
 
   useEffect(() => {
     if (
-      localStorage.getItem(`${currentUser.email} - shortSavedMovies`) === "true"
+      localStorage.getItem('shortSavedMovies') === "true"
     ) {
       setShortMovies(true);
       setShowedMovies(filterShortMovies(savedMovies));

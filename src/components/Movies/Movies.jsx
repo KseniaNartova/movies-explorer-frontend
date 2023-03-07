@@ -37,7 +37,7 @@ export default function Movies({
       shortMoviesCheckbox ? filterShortMovies(movieList) : movieList
     );
     localStorage.setItem(
-      `${currentUser.email} - movies`,
+      'movies',
       JSON.stringify(movieList)
     );
   }
@@ -49,12 +49,12 @@ export default function Movies({
     } else {
       setFilteredMovies(getMoviesSearch);
     }
-    localStorage.setItem(`${currentUser.email} - shortMovies`, !shortMovies);
+    localStorage.setItem('shortMovies', !shortMovies);
   }
 
   function handleSearchSubmit(inputValue) {
-    localStorage.setItem(`${currentUser.email} - movieSearch`, inputValue);
-    localStorage.setItem(`${currentUser.email} - shortMovies`, shortMovies);
+    localStorage.setItem('movieSearch', inputValue);
+    localStorage.setItem('shortMovies', shortMovies);
 
     if (isApiMovies.length === 0) {
       setIsPreloader(true);
@@ -82,7 +82,7 @@ export default function Movies({
   }
 
   useEffect(() => {
-    if (localStorage.getItem(`${currentUser.email} - shortMovies`) === "true") {
+    if (localStorage.getItem('shortMovies') === "true") {
       setShortMovies(true);
     } else {
       setShortMovies(false);
@@ -90,7 +90,7 @@ export default function Movies({
   }, [currentUser]);
 
   useEffect(() => {
-    if (localStorage.getItem(`${currentUser.email} - shortMovies`) === "true") {
+    if (localStorage.getItem('shortMovies') === "true") {
       setShortMovies(true);
     } else {
       setShortMovies(false);
@@ -98,13 +98,13 @@ export default function Movies({
   }, [currentUser]);
 
   useEffect(() => {
-    if (localStorage.getItem(`${currentUser.email} - movies`)) {
+    if (localStorage.getItem('movies')) {
       const movies = JSON.parse(
-        localStorage.getItem(`${currentUser.email} - movies`)
+        localStorage.getItem('movies')
       );
       setGetMoviesSearch(movies);
       if (
-        localStorage.getItem(`${currentUser.email} - shortMovies`) === "true"
+        localStorage.getItem('shortMovies') === "true"
       ) {
         setFilteredMovies(filterShortMovies(movies));
       } else {
